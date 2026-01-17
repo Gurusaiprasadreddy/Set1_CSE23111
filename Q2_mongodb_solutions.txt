@@ -1,0 +1,21 @@
+a)
+use BillDetails;
+
+b)
+db.BillDetails.insertMany([
+  { billno: "B101", vendor: "xyz", date: "11-aug-2025", quantity: 50 },
+  { billno: "B101", vendor: "xyz", date: "12-aug-2025", quantity: 150 },
+  { billno: "B102", vendor: "xy", date: "13-aug-2025", quantity: 50 }
+]);
+
+c)
+db.BillDetails.find({ billno: "B102" });
+
+d)
+db.BillDetails.updateOne(
+  { billno: "B101", date: "11-aug-2025" },
+  { $set: { date: "13-aug-2025", quantity: 150 } }
+);
+
+e)
+db.BillDetails.deleteMany({ billno: "B101" });

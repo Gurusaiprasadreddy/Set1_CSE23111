@@ -1,0 +1,83 @@
+4)
+import React from 'react';
+import PropTypes from 'prop-types';
+
+class Total extends React.Component {
+   render() {
+      const { num1, num2, num3 } = this.props;
+      // Calculate the sum of all three numbers
+      const sum = parseInt(num1) + parseInt(num2) + parseInt(num3);
+      
+      return (
+         <div>
+            The total of {num1}, {num2}, and {num3} is {sum}
+         </div>
+      );
+   }
+}
+
+// Assignment must match the Class Name
+Total.propTypes = {
+   num1: PropTypes.number,
+   num2: PropTypes.number,
+   num3: PropTypes.number
+};
+
+export default Total;
+
+import ReactDOM from 'react-dom';
+
+// Passing the three numbers as props
+ReactDOM.render(
+   <Total num1={10} num2={20} num3={30} />, 
+   document.getElementById('root')
+);
+
+
+5)
+class ClickHandler extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { message: "Click the button" };
+
+    // BINDING: This ensures 'this' refers to the component inside handleEvent
+    this.handleEvent = this.handleEvent.bind(this);
+  }
+
+  handleEvent() {
+    this.setState({ message: "Button was clicked and 'this' is bound!" });
+  }
+
+  render() {
+    return (
+      <div>import React from 'react';
+
+class Counter extends React.Component {
+  constructor() {
+    super();
+    // Initializing state
+    this.state = { count: 0 };
+  }
+
+  incrementCount = () => {
+    // Updating state using setState (never modify this.state directly)
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Count: {this.state.count}</h2>
+        <button onClick={this.incrementCount}>Add 1</button>
+      </div>
+    );
+  }
+}
+        <p>{this.state.message}</p>
+        <button onClick={this.handleEvent}>Click Me</button>
+      </div>
+    );
+  }
+}
+
+6)
